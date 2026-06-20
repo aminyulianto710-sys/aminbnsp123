@@ -4,15 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node server.js"
-  },
-  "engines": {
-    "node": "20.x"
-  },
+  },g
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "multer": "^1.4.5-lts.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^6.0.1"
   }
 }
