@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - CV Teknologi Maju Bersama</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo-placeholder">
+                    <svg class="logo-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff9f1c;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#e6b85a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="8" y="8" width="32" height="32" rx="6" fill="none" stroke="url(#logoGrad)" stroke-width="2"/>
+                        <path d="M 14 18 L 20 24 L 14 30" stroke="url(#logoGrad)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 28 18 L 34 24 L 28 30" stroke="url(#logoGrad)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="brand-name">CV Teknologi Maju Bersama</span>
+                    <span class="brand-tag">Solusi digital modern</span>
+                </div>
+            </div>
+            <div class="company-name">
+                <div>
+                    <p class="eyebrow">Kontak</p>
+                    <h1>Hubungi CV Teknologi Maju Bersama</h1>
+                </div>
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <div class="nav-brand">Home</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang</a></li>
+                <li><a href="products.html">Layanan</a></li>
+                <li><a href="gallery.html">Galeri</a></li>
+                <li><a href="clients.html">Klien</a></li>
+                <li><a href="articles.html">Blog</a></li>
+                <li><a href="events.html">Agenda</a></li>
+                <li><a href="contact.html" class="active">Hubungi</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-layout">
+            <main class="content-area">
+                <section class="page-heading">
+                    <p class="hero-subtitle">Hubungi</p>
+                    <h2>Informasi Kontak</h2>
+                    <p class="page-description">Hubungi kami untuk membahas proyek, meminta penawaran, atau berkonsultasi tentang solusi digital yang sesuai kebutuhan.</p>
+                </section>
+                <section class="contact-section">
+                    <div class="contact-grid">
+                        <div>
+                            <p><strong>Alamat:</strong> Jl. Teknologi No. 8, Jakarta</p>
+                            <p><strong>Telepon:</strong> +62 21 1234 5678</p>
+                            <p><strong>Email:</strong> info@cvteknologimajubersama.co.id</p>
+                        </div>
+                        <div>
+                            <p><strong>Fax:</strong> +62 21 8765 4321</p>
+                            <p><strong>Jam Kerja:</strong> Senin - Jumat, 09.00 - 18.00</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section-block">
+                    <h2>Masuk / Keluar (Simulasi)</h2>
+                    <p>Form sederhana untuk mencontohkan mekanisme masuk dan keluar pada halaman statis ini.</p>
+                    <div class="login-card inner-login-card">
+                        <p class="login-title">Masuk / Keluar</p>
+                        <p class="login-status">Masuk untuk mengakses akun.</p>
+                        <form class="login-form">
+                            <input type="text" name="username" placeholder="Nama pengguna" required>
+                            <input type="password" name="password" placeholder="Kata sandi" required>
+                            <button type="submit">Masuk</button>
+                            <button type="button" class="logout-btn">Keluar</button>
+                        </form>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer">
+                <p class="footer-note">Design by "amin yulianto"</p>
+            </footer>
+        </div>
+    </div>
+    <script>
+        const loginForm = document.querySelector('.login-form');
+        const loginStatus = document.querySelector('.login-status');
+        const logoutBtn = document.querySelector('.logout-btn');
+
+        function updateStatus() {
+            const user = localStorage.getItem('companyUser');
+            if (user) {
+                loginStatus.textContent = `Terhubung sebagai ${user}.`;
+            } else {
+                loginStatus.textContent = 'Masuk untuk mengakses akun.';
+            }
+        }
+
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = loginForm.username.value.trim();
+            if (username) {
+                localStorage.setItem('companyUser', username);
+                updateStatus();
+                loginForm.reset();
+            }
+        });
+
+        logoutBtn.addEventListener('click', function () {
+            localStorage.removeItem('companyUser');
+            updateStatus();
+        });
+
+        updateStatus();
+    </script>
+</body>
+</html>
